@@ -1,0 +1,22 @@
+[package]
+name = "local_book"
+version = "0.1.0"
+description = "An order book in one account that walks the list to place an order"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "local_book"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = "0.31.1"
+anchor-spl = "0.31.1"
+bytemuck = { version = "1.16", features = ["derive", "min_const_generics"] }

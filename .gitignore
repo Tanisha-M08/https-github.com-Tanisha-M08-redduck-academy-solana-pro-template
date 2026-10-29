@@ -1,0 +1,8 @@
+node_modules
+.env
+.anchor
+target
+test-ledger
+**/*.rs.bk
+*.tsbuildinfo
+.DS_Store

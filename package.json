@@ -1,0 +1,39 @@
+{
+  "name": "redduck-academy-solana-pro-template",
+  "version": "1.0.0",
+  "description": "Solana PRO review tasks: Anchor programs with bankrun tests",
+  "license": "MIT",
+  "scripts": {
+    "build": "anchor build",
+    "test": "anchor build && ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.test.ts",
+    "test:findTheRootOfTrust": "anchor build -p oracle_vault && ts-mocha -p ./tsconfig.json -t 1000000 tests/02-find-the-root-of-trust/*.test.ts",
+    "test:runItWithoutTheOperator": "anchor build -p operator_free && ts-mocha -p ./tsconfig.json -t 1000000 tests/03-run-it-without-the-operator/*.test.ts",
+    "test:rewardsWithoutALoop": "anchor build -p lazy_pool && ts-mocha -p ./tsconfig.json -t 1000000 tests/04-rewards-without-a-loop/*.test.ts",
+    "test:orderbookWithLocalChecks": "anchor build -p local_book && ts-mocha -p ./tsconfig.json -t 1000000 tests/05-orderbook-with-local-checks/*.test.ts",
+    "test:proposalAnyoneCanExecute": "anchor build -p open_multisig && ts-mocha -p ./tsconfig.json -t 1000000 tests/06-proposal-anyone-can-execute/*.test.ts",
+    "test:claimsInAnyOrder": "anchor build -p total_claims && ts-mocha -p ./tsconfig.json -t 1000000 tests/07-claims-in-any-order/*.test.ts",
+    "test:valueThePosition": "anchor build -p position_value && ts-mocha -p ./tsconfig.json -t 1000000 tests/08-value-the-position/*.test.ts",
+    "test:writeTheExit": "anchor build -p round_exit && ts-mocha -p ./tsconfig.json -t 1000000 tests/09-write-the-exit/*.test.ts",
+    "deploy": "anchor deploy",
+    "prettier": "prettier --write .",
+    "lint": "cargo fmt --all -- --check && cargo clippy --all-targets -- -D warnings",
+    "lint:fix": "cargo fmt --all"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.31.1",
+    "@solana/spl-token": "0.4.14",
+    "@solana/web3.js": "1.98.4",
+    "solana-bankrun": "^0.4.0"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.6",
+    "@types/chai": "^4.3.20",
+    "@types/mocha": "^10.0.10",
+    "anchor-bankrun": "^0.5.0",
+    "chai": "^4.5.0",
+    "mocha": "^10.8.2",
+    "prettier": "^3.5.3",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.7.2"
+  }
+}
